@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Intro a Docker</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="container">
+    <header class="profile-section">
+      <!-- Imágen de perfil -->
+      <img src="{{ url_for('static', filename='profile.png') }}" alt="Imágen" class="profile-image">
+
+      <!-- Título y nombre -->
+      <h1>Hola, desde Docker!</h1>
+      <p class="subtitle">Alan Franco</p>
+    </header>
+
+    <main class="content-section">
+      <!-- Sobre mí -->
+      <section class="about-box">
+        <h2>Sobre Mí</h2>
+        <p>
+          Hola! Soy un estudiante aprendiendo a usar Docker.
+          Esto es una página de introducción sencilla donde comparto un poco sobre mí.
+          Ten la libertad de editar esta página con información sobre ti mismo.
+        </p>
+      </section>
+
+      <div class="info-grid">
+        <!-- Columna izquierda -->
+        <section class="info-box">
+          <h3>Mis Hobbies</h3>
+          <ul>
+          <li>Programación</li>
+          <li>Leer libros técnicos</li>
+          <li>Escuchar música</li>
+          </ul>
+        </section>
+
+        <!-- Columna derecha -->
+        <section class="info-box">
+          <h3>Mis Intereses</h3>
+          <ul>
+            <li>Docker</li>
+            <li>Cómputo en la Nube</li>
+            <li>Desarrollo Web</li>
+          </ul>
+        </section>
+      </div>
+
+      <!-- Lenguaje de programación favorito -->
+      <section class="about-box">
+        <h2>Mi Lenguaje de Programación Favorito</h2>
+        <p>
+          <strong>C</strong> es mi lenguaje de programación favorito. Es un
+          lenguaje de bajo nivel que me permite entender cómo funcionan las
+          cosas a nivel de hardware. Además, sirve como buen fundamento para
+          aprender otros lenguajes de programación.
+        </p>
+      </section>
+    </main>
+
+    <!-- Pie de página -->
+    <footer class="footer">
+      <p>Hecho con ❤️ para aprender Docker</p>
+    </footer>
+  </div>
+</body>
+
+</html>
