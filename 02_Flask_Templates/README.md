@@ -13,7 +13,7 @@ Por motivos de simplicidad, se han proporcionado los archivos `index.html` y `st
 - `02_Flask_Templates/static/styles.css`
 - `02_Flask_Templates/templates/index.html`
 
-Se le motiva al participante a realizar modificaciones en estos archivos para personalizar el contenido (y apariencia, si desea) de la aplicación a su gusto.
+Se le motiva al participante a realizar modificaciones en estos archivos para personalizar el contenido (y apariencia, si desea) de la aplicación a su gusto. Dentro de la carpeta `static`, se puede poner una imagen de perfil bajo el nombre `profile.png`. Ya existe una imágen de ejemplo en el repositorio en la carpeta `02_Flask_Templates/static/profile.png`. Sin embargo, se le anima al participante a utilizar una imagen de su elección.
 
 ## 3. Modificar el código de `app.py` para renderizar la plantilla
 
