@@ -21,8 +21,8 @@ services:
     container_name: mi-redis
     networks:
       - mi-red
-    volumes:
-      - redis-data:/data
+    # volumes:
+    #   - redis-data:/data
 
 networks:
   mi-red:
