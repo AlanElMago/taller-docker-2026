@@ -42,6 +42,7 @@ Una vez creado el archivo, la organización del proyecto debería verse de la si
 
 ```
 .
+├── .venv/
 ├── docker-compose.yml
 ├── webapp/
 │   ├── Dockerfile
