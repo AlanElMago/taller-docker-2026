@@ -184,7 +184,7 @@ El código que se añadió hace tres cosas principales:
 > Esto se debe a que el contenedor `mi-webapp` (bajo el nombre de servicio `webapp`) no puede comunicarse con el contenedor `mi-redis` (bajo el nombre de servicio `redis`) usando `localhost`, ya que `localhost` se refiere a la propia máquina anfitriona y el controlador `bridge` de Docker crea una red virtual aislada para los contenedores. Dentro de esta red virtual, cada contenedor se comunica con otros contenedores utilizando el nombre del servicio definido en el archivo `docker-compose.yml` como el nombre del host.
 
 > [!NOTE]
-> **¡Oye, pero todavía no le asignamos un puerto al servicio de `redis` en el `docker-compose.yml`!**
+> **¡Oye, pero todavía no hemos mapeado un puerto al servicio de `redis` en el `docker-compose.yml`!**
 > No hay necesidad de hacerlo. Esto se debe a que el servicio `webapp` se conecta a `redis` utilizando la red virtual creada por Docker. El puerto por defecto de Redis es el 6379, y como ambos contenedores están en la misma red virtual, `webapp` puede conectarse a `redis` utilizando el nombre del servicio `redis` y el puerto 6379 sin necesidad de exponer el puerto al host (el no exponer puertos de más al host es una buena práctica de seguridad).
 
 ## 7. Agregar condición de `depends_on` al servicio de `webapp`
