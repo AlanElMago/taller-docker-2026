@@ -8,6 +8,27 @@ En esta sección, utilizaremos Docker Compose para orquestar dos contenedores de
 
 Para evitar construir una imágen para un gestor de base de datos (DBMS) desde cero, se hará uso de una imágen de Docker del DBMS de Redis. Esta imagen ya existe en un repositorio público de imágenes Docker llamado Docker Hub, y lo único que se necesita hacer es descargarla y ejecutar un contenedor con esa imagen.
 
+Antes de continuar con el primer paso, hay que realizar lo siguiente:
+
+1. Asegurar de que el contenedor `mi-webapp` esté detenido y eliminado:
+
+```bash
+docker stop mi-webapp
+docker rm mi-webapp
+```
+
+2. Instalar el módulo `redis` dentro del entorno virtual de Python:
+
+```bash
+pip install redis
+```
+
+3. Actualizar el archivo `requirements.txt` para incluir el módulo `redis`:
+
+```diff
+pip freeze > requirements.txt
+```
+
 ## 1. Mover el contenido del proyecto a la carpeta `webapp`
 
 Cuando se comienza a trabajar en proyectos con múltiples contenedores, es una buena práctica organizar el contenido del proyecto en carpetas, donde cada carpeta corresponde a un contenedor. Para esto, crea una carpeta llamada `webapp` en el directorio base del proyecto y mueve el contenido del proyecto (archivos `app.py`, `requirements.txt`, `Dockerfile`, carpetas `static` y `templates`) a la carpeta `webapp`.
@@ -69,7 +90,7 @@ Cuando se ejecuta este comando, ocurren dos cosas:
 1. Docker Compose construye la imagen para el servicio `webapp` utilizando el `Dockerfile` ubicado en `./webapp`.
 2. Docker Compose descarga la imagen `redis:7-alpine` para el servicio `redis` desde Docker Hub.
 
-Posteriormente, Docker Compose levanta dos contenedores: uno para la aplicación Flask (`webapp`) y otro para la base de datos Redis (`redis`). En el terminal se mostrarán los logs de ambos contenedores, lo que permite monitorear el estado de cada servicio. Para salir de los logs de los contenedores, presionen la tecla `d` en el terminal. Los contenedores seguirán ejecutándose en segundo plano después de salir de los logs. Pueden usar `docker ps` para verificar que ambos contenedores todavía están en ejecución.
+Posteriormente, Docker Compose levanta dos contenedores: uno para la aplicación Flask (`webapp`) y otro para la base de datos Redis (`redis`). En el terminal se mostrarán los logs de ambos contenedores, lo que permite monitorear el estado de cada servicio. Para salir de los logs de los contenedores, presionen la tecla `d` en el terminal (si se encuentra en Windows, presione la tecla `d` dos veces seguidas). Los contenedores seguirán ejecutándose en segundo plano después de salir de los logs. Pueden usar `docker ps` para verificar que ambos contenedores todavía están en ejecución.
 
 Se logró levantar la aplicación de Flask y la base de datos Redis utilizando Docker Compose. Sin embargo, todavía falta conectar el contenedor de `mi-webapp` con el contenedor de `mi-redis` para que la aplicación Flask pueda interactuar con la base de datos Redis. Para esto, se debe realizar dos cosas:
 
@@ -144,7 +165,7 @@ Agregarmos el siguiente comentario y elemento HTML a `index.html` para mostrar e
       </section>
 +
 +     <!-- Contador de visitas -->
-+     <!-- <p>Esta página ha sido visitada <strong>{{ visits }}</strong> veces.</p> -->
++     <p>Esta página ha sido visitada <strong>{{ visits }}</strong> veces.</p>
     </main>
 ...
 ```
@@ -222,7 +243,7 @@ La sección `depends_on` indica que el servicio `webapp` depende del servicio `r
 Ahora sí, se puede volver a construir y levantar los contenedores con el siguiente comando:
 
 ```bash
-docker compose up -d
+docker compose up -d --build
 ```
 
 > [!NOTE]
