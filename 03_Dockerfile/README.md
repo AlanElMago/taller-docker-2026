@@ -133,6 +133,8 @@ La información que muestra el comando nos propociona la siguiente información:
 
 Abre tu navegador web y navega a `http://localhost:5000` para ver la aplicación Flask en ejecución. Deberías ver el mismo contenido que antes, pero ahora la aplicación está siendo ejecutada dentro de un contenedor de Docker.
 
+Antes de continuar con el siguiente paso, cierre la aplicación Flask en ejecución dentro del contenedor utilizando la combinación de teclas `CTRL+C` en la terminal donde se está ejecutando el contenedor. Si se encuentra en Windows, es posible que necesite presionar `CTRL+C` dos veces para detener el contenedor correctamente.
+
 ## 6. Cambiar el mapeo de puertos
 
 Imagine que desea acceder a la aplicación Flask sin necesidad de especificar el puerto en la URL (es decir, acceder a `http://localhost` en lugar de `http://localhost:5000`). Para lograr esto, puede cambiar el mapeo de puertos al ejecutar el contenedor. Para lograr esto, detendremos la ejecución del contenedor usando la combinación de teclas `CTRL+C` en la terminal.
